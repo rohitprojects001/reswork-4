@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RESWORK — Style Your Look Today</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="rgb-ambient"></div>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="assets/logo.png" alt="RESWORK" onerror="this.style.display='none'">
+    RESWORK
+  </a>
+  <div class="nav-links">
+    <a href="index.html" class="active">Home</a>
+    <a href="store.html">Store</a>
+    <a href="#" data-open-cart>Cart</a>
+    <a href="#" id="ordersLink">Orders</a>
+  </div>
+  <div class="nav-actions">
+    <button class="nav-icon-btn nav-toggle" aria-label="Menu">
+      <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round"/></svg>
+    </button>
+    <a class="nav-icon-btn" href="store.html" aria-label="Search">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+    </a>
+    <button class="nav-icon-btn" data-open-cart aria-label="Cart">
+      <svg viewBox="0 0 24 24"><path d="M3 6h2l2.4 12.4a2 2 0 0 0 2 1.6h8.4a2 2 0 0 0 2-1.6L22 8H6"/><circle cx="9" cy="21" r="1"/><circle cx="18" cy="21" r="1"/></svg>
+      <span class="cart-badge">0</span>
+    </button>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="look-stage" id="lookStage">
+    <img class="is-active" src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=700&q=80" alt="Look 1">
+    <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=700&q=80" alt="Look 2">
+    <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=700&q=80" alt="Look 3">
+  </div>
+  <h1 class="hero-word">RESWORK</h1>
+  <p class="hero-tagline">Style your look today</p>
+  <p class="hero-sub">Trendy streetwear, built in black, grey and white. Fashion-forward fits for everyday movement.</p>
+  <div class="hero-cta">
+    <a href="store.html" class="btn btn-primary">Shop Now</a>
+    <a href="#story" class="btn btn-outline">Explore The Look</a>
+  </div>
+</header>
+
+<!-- ===== SCROLL STORY — clothes change as you scroll ===== -->
+<section class="story" id="story">
+  <p class="story-eyebrow">As You Scroll</p>
+  <h2 class="story-heading">One scroll. Three looks. Every piece built to move with you.</h2>
+
+  <div class="story-track" id="storyTrack">
+    <div class="story-frame">
+      <img class="story-img is-active" src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=1200&q=80" alt="Hoodie look">
+      <img class="story-img" src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=1200&q=80" alt="Cargo look">
+      <img class="story-img" src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=1200&q=80" alt="Bomber look">
+      <div class="frame-caption is-active" data-cap="0">01 — Oversized Tonal Hoodie</div>
+      <div class="frame-caption" data-cap="1">02 — Studio Cargo Pants</div>
+      <div class="frame-caption" data-cap="2">03 — Liquid Bomber Jacket</div>
+    </div>
+    <div class="story-spacer"></div>
+  </div>
+</section>
+
+<!-- ===== FEATURED PRODUCTS ===== -->
+<section class="section">
+  <div class="section-head reveal">
+    <h2 class="section-title">Best Of Reswork</h2>
+    <a href="store.html" class="section-link">View All →</a>
+  </div>
+  <div class="product-grid reveal" id="featuredGrid"></div>
+</section>
+
+<!-- ===== STRIP ===== -->
+<section class="section reveal" style="padding-top:0;">
+  <div style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;text-align:center;border-top:1px solid rgba(255,255,255,.08);padding-top:50px;">
+    <div><strong style="display:block;font-size:1.1rem;margin-bottom:6px;">Fast Delivery</strong><span style="color:var(--grey);font-size:.85rem;">Quick & safe, every order</span></div>
+    <div><strong style="display:block;font-size:1.1rem;margin-bottom:6px;">Easy Returns</strong><span style="color:var(--grey);font-size:.85rem;">Within 15 days</span></div>
+    <div><strong style="display:block;font-size:1.1rem;margin-bottom:6px;">Quality Assured</strong><span style="color:var(--grey);font-size:.85rem;">Checked before it ships</span></div>
+    <div><strong style="display:block;font-size:1.1rem;margin-bottom:6px;">Secure Checkout</strong><span style="color:var(--grey);font-size:.85rem;">Your details stay yours</span></div>
+  </div>
+</section>
+
+<footer>
+  <div class="display">RESWORK</div>
+  <p>Fashion forward styles, made to move.</p>
+  <a class="admin-link" href="../admin/index.html">Admin Portal →</a>
+</footer>
+
+<!-- ===== CART DRAWER ===== -->
+<div class="cart-overlay" data-close-cart></div>
+<aside class="cart-drawer">
+  <div class="cart-head">
+    <h3>Your Bag</h3>
+    <button data-close-cart aria-label="Close">✕</button>
+  </div>
+  <div class="cart-items"></div>
+  <div class="cart-footer">
+    <div class="cart-total-row"><span>Total</span><span class="cart-total-value">₹0</span></div>
+    <button class="btn btn-primary" style="width:100%;" data-open-checkout>Checkout</button>
+  </div>
+</aside>
+
+<!-- ===== CHECKOUT MODAL ===== -->
+<div class="modal-overlay">
+  <div class="modal-box">
+    <div class="checkout-view">
+      <h3>Delivery Details</h3>
+      <form id="checkoutForm">
+        <div class="field"><label>Full Name</label><input name="name" required placeholder="Your name"></div>
+        <div class="field"><label>Phone Number</label><input name="phone" required placeholder="10-digit number" pattern="[0-9]{10}"></div>
+        <div class="field"><label>Delivery Address</label><textarea name="address" rows="3" required placeholder="House no, street, city, pincode"></textarea></div>
+        <button type="submit" class="btn btn-primary" style="width:100%;margin-top:10px;">Pay & Place Order</button>
+      </form>
+    </div>
+    <div class="success-view" style="display:none;">
+      <div class="success-box">
+        <div class="check"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+        <h3 style="margin-bottom:6px;">Order Placed!</h3>
+        <p style="color:var(--grey);">Order ID: <strong class="order-id" style="color:var(--white);"></strong></p>
+        <p style="color:var(--grey);margin-top:8px;font-size:.85rem;">We'll reach out to confirm delivery. Thank you for shopping Reswork.</p>
+        <button class="btn btn-outline" style="margin-top:20px;" data-close-modal>Done</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast"></div>
+
+<div id="setupBanner" style="display:none;position:fixed;top:0;left:0;right:0;z-index:999;background:#ff3c78;color:#fff;text-align:center;padding:10px;font-size:.85rem;font-weight:600;">
+  ⚠️ Firebase not connected yet — fill in <code>shared/firebase-config.js</code> with your project keys. See README.
+</div>
+
+<script type="module" src="../shared/firebase-data.js"></script>
+<script type="module" src="../shared/razorpay-bridge.js"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="js/cart.js"></script>
+<script>
+  window.addEventListener("reswork-db-unconfigured", () => {
+    document.getElementById("setupBanner").style.display = "block";
+  });
+
+  function renderFeatured() {
+    const featuredGrid = document.getElementById("featuredGrid");
+    const featured = Store.getProducts().slice(0, 4);
+    if (!featured.length) { featuredGrid.innerHTML = `<div class="no-results">No products yet. Add some from the Admin Portal.</div>`; return; }
+    featuredGrid.innerHTML = featured.map(p => `
+    <a class="product-card" href="product.html?id=${p.id}">
+      <div class="product-media">
+        <span class="product-tag">${p.tag}</span>
+        <img src="${p.images[0]}" alt="${p.name}">
+        <img src="${p.images[1]}" alt="${p.name} alt">
+        <button class="product-quickadd" data-quickadd="${p.id}" aria-label="Quick add">
+          <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+      </div>
+      <div class="product-info">
+        <div class="pname">${p.name}</div>
+        <div class="pcat">${p.category}</div>
+        <div class="pprice">₹${p.price.toLocaleString("en-IN")}</div>
+      </div>
+    </a>
+  `).join("");
+  }
+  window.addEventListener("reswork-products-updated", renderFeatured);
+
+  document.getElementById("ordersLink").addEventListener("click", (e) => {
+    e.preventDefault();
+    showToast("Track your orders from the Admin Portal");
+  });
+
+  /* hero look-stage cycle */
+  const lookImgs = document.querySelectorAll("#lookStage img");
+  let lookIdx = 0;
+  setInterval(() => {
+    lookImgs[lookIdx].classList.remove("is-active");
+    lookIdx = (lookIdx + 1) % lookImgs.length;
+    lookImgs[lookIdx].classList.add("is-active");
+  }, 2600);
+
+  /* scroll-driven story: change image+caption based on scroll progress through track */
+  const storyTrack = document.getElementById("storyTrack");
+  const storyImgs = document.querySelectorAll(".story-img");
+  const storyCaps = document.querySelectorAll(".frame-caption");
+
+  function updateStory() {
+    const rect = storyTrack.getBoundingClientRect();
+    const total = rect.height - window.innerHeight;
+    let progress = (-rect.top) / total;
+    progress = Math.min(Math.max(progress, 0), 0.999);
+    const idx = Math.floor(progress * storyImgs.length);
+    storyImgs.forEach((img, i) => img.classList.toggle("is-active", i === idx));
+    storyCaps.forEach((cap, i) => cap.classList.toggle("is-active", i === idx));
+  }
+  window.addEventListener("scroll", updateStory);
+  updateStory();
+</script>
+</body>
+</html>

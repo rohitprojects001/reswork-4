@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — RESWORK</title>
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+<!-- ===== LOGIN GATE ===== -->
+<div class="login-wrap" id="loginWrap">
+  <div class="login-box">
+    <div class="display">RESWORK</div>
+    <p>Admin Portal Access</p>
+    <form id="loginForm">
+      <div class="field"><label>Username</label><input name="user" required placeholder="admin"></div>
+      <div class="field"><label>Password</label><input name="pass" type="password" required placeholder="••••••••"></div>
+      <button class="btn-sm btn-white" style="width:100%;padding:13px;margin-top:6px;" type="submit">Login</button>
+    </form>
+    <div class="login-error" id="loginError"></div>
+    <p style="margin-top:18px;font-size:.75rem;">Default: <strong>admin</strong> / <strong>reswork123</strong></p>
+  </div>
+</div>
+
+<!-- ===== ADMIN SHELL ===== -->
+<div class="admin-shell" id="adminShell" style="display:none;">
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <img src="../store/assets/logo.png" onerror="this.style.display='none'">
+      RESWORK
+    </div>
+    <a class="sidebar-link active" data-section="dashboard">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+      Dashboard
+    </a>
+    <a class="sidebar-link" data-section="orders">
+      <svg viewBox="0 0 24 24"><path d="M3 6h2l2.4 12.4a2 2 0 0 0 2 1.6h8.4a2 2 0 0 0 2-1.6L22 8H6"/></svg>
+      Orders
+    </a>
+    <a class="sidebar-link" data-section="products">
+      <svg viewBox="0 0 24 24"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/></svg>
+      Products
+    </a>
+    <a class="sidebar-link" data-section="customers">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+      Customers
+    </a>
+    <div class="sidebar-foot">
+      Logged in as <strong style="color:var(--white);">Admin</strong><br>
+      <a href="#" id="logoutBtn" style="text-decoration:underline;">Logout</a>
+      <br><a href="../store/index.html" style="text-decoration:underline;">← Back to Store</a>
+    </div>
+  </aside>
+
+  <main class="admin-main">
+    <!-- DASHBOARD -->
+    <section id="section-dashboard">
+      <div class="admin-topbar">
+        <div><div class="admin-title">Dashboard</div><div class="admin-sub">Live overview of your store</div></div>
+      </div>
+      <div class="stat-grid" id="statGrid"></div>
+
+      <div class="panel">
+        <div class="panel-head"><h3>Recent Orders</h3><a class="btn-sm" data-go="orders">View All →</a></div>
+        <div class="table-wrap"><table id="recentOrdersTable"><thead><tr><th>Order</th><th>Customer</th><th>Items</th><th>Total</th><th>Status</th></tr></thead><tbody></tbody></table></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><h3>Low Stock Alerts</h3><a class="btn-sm" data-go="products">Manage →</a></div>
+        <div class="table-wrap"><table id="lowStockTable"><thead><tr><th>Product</th><th>Category</th><th>Stock</th></tr></thead><tbody></tbody></table></div>
+      </div>
+    </section>
+
+    <!-- ORDERS -->
+    <section id="section-orders" style="display:none;">
+      <div class="admin-topbar">
+        <div><div class="admin-title">Orders</div><div class="admin-sub">Every order placed on the store, in real time</div></div>
+        <input id="orderSearch" placeholder="Search by order ID or customer" style="background:var(--charcoal);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:11px 16px;color:var(--white);outline:none;">
+      </div>
+      <div class="panel">
+        <div class="table-wrap">
+          <table id="ordersTable">
+            <thead><tr><th>Order ID</th><th>Date</th><th>Customer</th><th>Phone</th><th>Items</th><th>Total</th><th>Status</th><th></th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section id="section-products" style="display:none;">
+      <div class="admin-topbar">
+        <div><div class="admin-title">Products</div><div class="admin-sub">Manage your catalog and stock</div></div>
+        <div style="display:flex;gap:10px;">
+          <button class="btn-sm" id="seedProductsBtn">Load Sample Products</button>
+          <button class="btn-sm btn-white" id="addProductBtn">+ Add Product</button>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="table-wrap">
+          <table id="productsTable">
+            <thead><tr><th>Product</th><th>Category</th><th>Price</th><th>Stock</th><th>Tag</th><th></th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- CUSTOMERS -->
+    <section id="section-customers" style="display:none;">
+      <div class="admin-topbar">
+        <div><div class="admin-title">Customers</div><div class="admin-sub">Everyone who has ordered from Reswork</div></div>
+      </div>
+      <div class="panel">
+        <div class="table-wrap">
+          <table id="customersTable">
+            <thead><tr><th>Name</th><th>Phone</th><th>Address</th><th>Orders</th><th>Total Spent</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- product edit modal -->
+<div class="modal-overlay" id="productModal">
+  <div class="modal-box">
+    <h3 id="productModalTitle">Add Product</h3>
+    <form id="productForm">
+      <input type="hidden" name="id">
+      <div class="form-grid">
+        <div class="field"><label>Name</label><input name="name" required></div>
+        <div class="field"><label>Category</label><input name="category" required></div>
+        <div class="field"><label>Price (₹)</label><input name="price" type="number" required></div>
+        <div class="field"><label>Stock</label><input name="stock" type="number" required></div>
+        <div class="field"><label>Tag</label><input name="tag" placeholder="NEW / BESTSELLER"></div>
+        <div class="field"><label>Colors (comma separated)</label><input name="colors" required></div>
+        <div class="field"><label>Sizes (comma separated)</label><input name="sizes" required></div>
+      </div>
+      <div class="field" style="margin-top:14px;"><label>Image URL 1</label><input name="image1" placeholder="https://... (or upload below)"></div>
+      <div class="field" style="margin-top:14px;"><label>Or Upload Image 1 From Device</label><input name="imageFile1" type="file" accept="image/*"></div>
+      <div class="field" style="margin-top:14px;"><label>Image URL 2</label><input name="image2" placeholder="https://... (or upload below)"></div>
+      <div class="field" style="margin-top:14px;"><label>Or Upload Image 2 From Device</label><input name="imageFile2" type="file" accept="image/*"></div>
+      <div class="field" style="margin-top:14px;"><label>Description</label><textarea name="description" rows="3"></textarea></div>
+      <div style="display:flex;gap:10px;margin-top:20px;">
+        <button type="button" class="btn-sm" data-close-product-modal style="flex:1;padding:12px;">Cancel</button>
+        <button type="submit" class="btn-sm btn-white" style="flex:1;padding:12px;">Save Product</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<div id="setupBanner" style="display:none;position:fixed;top:0;left:0;right:0;z-index:999;background:#ff3c78;color:#fff;text-align:center;padding:10px;font-size:.85rem;font-weight:600;">
+  ⚠️ Firebase not connected yet — fill in <code>shared/firebase-config.js</code> with your project keys. See README.
+</div>
+
+<script type="module" src="../shared/firebase-data.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>
